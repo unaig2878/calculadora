@@ -13,6 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
         pantalla.value += value;
     }
 
+    function Calcular() {
+        try {
+            const result = eval(pantalla.value);
+            pantalla.value = result;
+        } catch (error) {
+            pantalla.value = 'Error';
+        }
+    }
+
     function clearScreen() {
         pantalla.value = '';
     }
@@ -34,6 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
     operators[3].addEventListener('click', operatorClick);
     operators[4].addEventListener('click', operatorClick);
 
+    const equalBtn = document.getElementById('=');
+    equalBtn.addEventListener('click', Calcular);
+
+    const clearBtn = document.querySelector('input[value="C"]');
+    clearBtn.addEventListener('click', clearScreen);
 });
 
 
